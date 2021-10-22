@@ -8,14 +8,13 @@ return require('packer').startup(function()
   -- Highlighting
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
-  
   use {
     'hoob3rt/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
   use {
-    'akinsho/bufferline.nvim', 
+    'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons'
   }
 
@@ -24,10 +23,32 @@ return require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons',
   }
 
-  use {'windwp/nvim-ts-autotag'}
+  use 'windwp/nvim-ts-autotag'
 
-  use {'windwp/nvim-autopairs'}
+  use 'windwp/nvim-autopairs'
 
-  use {'windwp/nvim-ts-rainbow'}
+  use 'p00f/nvim-ts-rainbow'
 
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {}
+    end
+  }
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+  use 'onsails/lspkind-nvim'
+  use 'norcalli/nvim-colorizer.lua'
+  use 'Pocco81/AutoSave.nvim'
+  use 'akinsho/toggleterm.nvim'
+  use 'b3nj5m1n/kommentary'
+  use 'marko-cerovac/material.nvim'
 end)

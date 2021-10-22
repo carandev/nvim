@@ -1,6 +1,6 @@
 require('lualine').setup({
-  options = {theme = 'nord',
-  section_separators = '', 
+  options = {theme = 'material-nvim',
+  section_separators = '',
   component_separators = ''
   }
 })

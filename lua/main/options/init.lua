@@ -21,10 +21,14 @@ vim.o.ignorecase = true
 vim.o.scrolloff = 3
 vim.o.sidescrolloff = 5
 vim.o.mouse = 'a'
-vim.o.shell = 'powershell'
 
 vim.wo.wrap = false
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.cursorline = true
 vim.wo.signcolumn = 'yes'
+
+vim.o.shiftwidth = 2
+vim.bo.shiftwidth = 2
+vim.o.autoindent = true
+vim.bo.autoindent = true
