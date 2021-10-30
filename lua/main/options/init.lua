@@ -20,7 +20,6 @@ vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.scrolloff = 3
 vim.o.sidescrolloff = 5
-vim.o.mouse = 'a'
 
 vim.wo.wrap = false
 vim.wo.number = true

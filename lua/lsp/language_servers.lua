@@ -38,7 +38,8 @@ local lang_servers = {
   'ls_emmet',
   'sumneko_lua',
   'jsonls',
-  'tailwindcss'
+  'tailwindcss',
+  'jdtls'
 }
 
 for _, server in ipairs(lang_servers) do
