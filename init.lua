@@ -11,6 +11,7 @@ require('lsp')
 require('colorizer-config')
 require('autosave-config')
 require('kommentary-config')
+require('dashboard-config')
 
 -- Color scheme
 vim.g.material_style = "deep ocean"

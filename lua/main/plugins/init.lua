@@ -51,4 +51,6 @@ return require('packer').startup(function()
   use 'akinsho/toggleterm.nvim'
   use 'b3nj5m1n/kommentary'
   use 'marko-cerovac/material.nvim'
+  use 'github/copilot.vim'
+  use 'glepnir/dashboard-nvim'
 end)

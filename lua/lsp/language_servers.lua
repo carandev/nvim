@@ -12,17 +12,17 @@ else
 end
 --
 -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
-local sumneko_root_path = '/home/carlos/.config/nvim/lua-language-server/'
+local sumneko_root_path = '/home/carandev/.config/nvim/lua-language-server'
 local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-require'lspconfig/configs'.ls_emmet = {
+require'lspconfig/configs'.emmet_ls = {
   default_config = {
-    cmd = { 'ls_emmet', '--stdio' };
-    filetypes = { 'html', 'css', 'scss' }; -- Add the languages you use, see language support
+    cmd = { 'emmet-ls', '--stdio' };
+    filetypes = { 'html', 'css', 'scss', 'htmldjango', 'jsx' }; -- Add the languages you use, see language support
     root_dir = function(_)
       return vim.loop.cwd()
     end;
@@ -35,11 +35,11 @@ local lang_servers = {
   'cssls',
   'html',
   'tsserver',
-  'ls_emmet',
+  'emmet_ls',
   'sumneko_lua',
   'jsonls',
   'tailwindcss',
-  'jdtls'
+  'dockerls'
 }
 
 for _, server in ipairs(lang_servers) do
