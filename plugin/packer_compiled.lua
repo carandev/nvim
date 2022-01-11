@@ -57,7 +57,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -69,114 +69,151 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["AutoSave.nvim"] = {
-    loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/AutoSave.nvim"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/bufferline.nvim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-vsnip"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/cmp-vsnip"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["copilot.vim"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/copilot.vim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
   },
   ["dashboard-nvim"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
   },
   kommentary = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/kommentary"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/kommentary",
+    url = "https://github.com/b3nj5m1n/kommentary"
   },
   ["lspkind-nvim"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
+    url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/hoob3rt/lualine.nvim"
   },
   ["material.nvim"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/material.nvim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/material.nvim",
+    url = "https://github.com/marko-cerovac/material.nvim"
   },
   ["nord.nvim"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nord.nvim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-cmp"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
+  ["nvim-jdtls"] = {
+    loaded = true,
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
+  },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-ts-autotag"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-ts-rainbow"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+    url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["rust.vim"] = {
+    loaded = true,
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/rust.vim",
+    url = "https://github.com/rust-lang/rust.vim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/toggleterm.nvim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["vim-vsnip"] = {
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   },
   ["which-key.nvim"] = {
     config = { "\27LJ\1\2;\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\14which-key\frequire\0" },
     loaded = true,
-    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/which-key.nvim"
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

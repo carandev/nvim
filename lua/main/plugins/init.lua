@@ -40,6 +40,7 @@ return require('packer').startup(function()
     end
   }
   use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
@@ -47,10 +48,11 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'onsails/lspkind-nvim'
   use 'norcalli/nvim-colorizer.lua'
-  use 'Pocco81/AutoSave.nvim'
   use 'akinsho/toggleterm.nvim'
   use 'b3nj5m1n/kommentary'
   use 'marko-cerovac/material.nvim'
   use 'github/copilot.vim'
   use 'glepnir/dashboard-nvim'
+  use 'rust-lang/rust.vim'
+  use 'mfussenegger/nvim-jdtls'
 end)

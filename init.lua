@@ -9,7 +9,6 @@ require('treesitter-config')
 require('autopairs-config')
 require('lsp')
 require('colorizer-config')
-require('autosave-config')
 require('kommentary-config')
 require('dashboard-config')
 

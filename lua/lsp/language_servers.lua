@@ -1,4 +1,5 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lsp_installer = require("nvim-lsp-installer")
 
 local system_name
 if vim.fn.has("mac") == 1 then
@@ -22,11 +23,43 @@ table.insert(runtime_path, "lua/?/init.lua")
 require'lspconfig/configs'.emmet_ls = {
   default_config = {
     cmd = { 'emmet-ls', '--stdio' };
-    filetypes = { 'html', 'css', 'scss', 'htmldjango', 'jsx' }; -- Add the languages you use, see language support
+    filetypes = { 'html', 'css', 'scss', 'htmldjango', 'jsx'}; -- Add the languages you use, see language support
     root_dir = function(_)
       return vim.loop.cwd()
     end;
     settings = {};
+  };
+}
+
+local on_attach = function(client)
+    require'completion'.on_attach(client)
+end
+
+require'lspconfig'.rust_analyzer.setup({
+    on_attach=on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            assist = {
+                importGranularity = "module",
+                importPrefix = "by_self",
+            },
+            cargo = {
+                loadOutDirsFromCheck = true
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+
+require'lspconfig/configs'.phpactor = {
+  default_config = {
+    cmd = { 'phpactor', 'language-server' };
+    filetypes = { 'php'};
+    root_dir = function(_)
+      return vim.loop.cwd()
+    end;
   };
 }
 
@@ -39,7 +72,10 @@ local lang_servers = {
   'sumneko_lua',
   'jsonls',
   'tailwindcss',
-  'dockerls'
+  'dockerls',
+  'phpactor',
+  'rust_analyzer',
+  'jdtls'
 }
 
 for _, server in ipairs(lang_servers) do
@@ -70,9 +106,17 @@ for _, server in ipairs(lang_servers) do
 	},
       }
     }
-  else
+  elseif server == 'phpactor' then
     require'lspconfig'[server].setup {
-      capabilities = capabilities
+      capabilities = capabilities,
+      root_dir = function(_)
+        return vim.loop.cwd()
+      end;
+    }
+  elseif server == 'jdtls' then
+    require'lspconfig'[server].setup {
+      capabilities = capabilities,
+      cmd = {'start_jdtls'}
     }
   end
 end
