@@ -55,4 +55,17 @@ return require('packer').startup(function()
   use 'glepnir/dashboard-nvim'
   use 'rust-lang/rust.vim'
   use 'mfussenegger/nvim-jdtls'
+  use "lukas-reineke/indent-blankline.nvim"
+  use { 'tami5/lspsaga.nvim' }
+  use 'andweeb/presence.nvim'
+
+  use {
+    'rmagatti/auto-session',
+    config = function()
+      require('auto-session').setup {
+        log_level = 'info',
+        auto_session_suppress_dirs = {'~/', '~/Projects'}
+      }
+    end
+  }
 end)

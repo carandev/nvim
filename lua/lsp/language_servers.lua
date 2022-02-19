@@ -75,7 +75,13 @@ local lang_servers = {
   'dockerls',
   'phpactor',
   'rust_analyzer',
-  'jdtls'
+  'jdtls',
+  'hls',
+  'clangd',
+  'ltex',
+  'texlab',
+  'bashls',
+  'csharp_ls'
 }
 
 for _, server in ipairs(lang_servers) do
@@ -83,27 +89,27 @@ for _, server in ipairs(lang_servers) do
     require'lspconfig'[server].setup {
       cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
       settings = {
-	Lua = {
-	  runtime = {
-	    -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-	    version = 'LuaJIT',
-	    -- Setup your lua path
-	    path = runtime_path,
-	  },
-	  diagnostics = {
-	    -- Get the language server to recognize the `vim` global
-	    globals = {'vim'},
-	  },
-	  workspace = {
-	    -- Make the server aware of Neovim runtime files
-	    library = vim.api.nvim_get_runtime_file("", true),
-	    checkThirdParty =  false
-	  },
-	  -- Do not send telemetry data containing a randomized but unique identifier
-	  telemetry = {
-	    enable = false,
-	  },
-	},
+        Lua = {
+          runtime = {
+            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+            version = 'LuaJIT',
+            -- Setup your lua path
+            path = runtime_path,
+          },
+          diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = {'vim'},
+          },
+          workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = vim.api.nvim_get_runtime_file("", true),
+            checkThirdParty =  false
+          },
+          -- Do not send telemetry data containing a randomized but unique identifier
+          telemetry = {
+            enable = false,
+          },
+        },
       }
     }
   elseif server == 'phpactor' then
@@ -117,6 +123,10 @@ for _, server in ipairs(lang_servers) do
     require'lspconfig'[server].setup {
       capabilities = capabilities,
       cmd = {'start_jdtls'}
+    }
+  else
+    require'lspconfig'[server].setup{
+      capabilities = capabilities
     }
   end
 end
