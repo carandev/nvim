@@ -81,7 +81,9 @@ local lang_servers = {
   'ltex',
   'texlab',
   'bashls',
-  'csharp_ls'
+  'csharp_ls',
+  'clangd',
+  'vuels'
 }
 
 for _, server in ipairs(lang_servers) do

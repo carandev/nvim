@@ -140,6 +140,11 @@ _G.packer_plugins = {
     path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nord.nvim",
     url = "https://github.com/shaunsingh/nord.nvim"
   },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/carandev/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -210,6 +215,11 @@ _G.packer_plugins = {
     path = "/home/carandev/.local/share/nvim/site/pack/packer/start/presence.nvim",
     url = "https://github.com/andweeb/presence.nvim"
   },
+  ["prettier.nvim"] = {
+    loaded = true,
+    path = "/home/carandev/.local/share/nvim/site/pack/packer/start/prettier.nvim",
+    url = "https://github.com/MunifTanjim/prettier.nvim"
+  },
   ["rust.vim"] = {
     loaded = true,
     path = "/home/carandev/.local/share/nvim/site/pack/packer/start/rust.vim",
@@ -252,5 +262,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end

@@ -68,4 +68,7 @@ return require('packer').startup(function()
       }
     end
   }
+
+  use('MunifTanjim/prettier.nvim')
+  use('jose-elias-alvarez/null-ls.nvim')
 end)
