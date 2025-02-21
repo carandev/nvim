@@ -32,7 +32,28 @@ require("lazy").setup({
 		vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })  -- Buscar archivos
 		vim.keymap.set("n", "<C-f>", ":Telescope live_grep<CR>", { noremap = true, silent = true })   -- Buscar en contenido
 	    end
-	}
+	},
+  {
+      "kdheepak/lazygit.nvim",
+      lazy = true,
+      cmd = {
+          "LazyGit",
+          "LazyGitConfig",
+          "LazyGitCurrentFile",
+          "LazyGitFilter",
+          "LazyGitFilterCurrentFile",
+      },
+      -- optional for floating window border decoration
+      dependencies = {
+          "nvim-lua/plenary.nvim",
+      },
+  },
+{
+    "folke/which-key.nvim",
+    config = function()
+        require("which-key").setup({})
+    end
+}
 ,
 })
 
