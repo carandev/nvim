@@ -16,3 +16,20 @@ vim.keymap.set("n", "<C-A-w>", ":bd<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>gg", ":<cmd>LazyGit<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true, desc = "Code Action" })
+
+vim.keymap.set("n", "<A-j>", function()
+    require("mini.multi").add_under_cursor()
+end, { noremap = true, silent = true, desc = "Añadir cursor a siguiente ocurrencia" })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.json" },
+    callback = function()
+        vim.lsp.buf.format({
+            async = false,
+            filter = function(client)
+                return client.name == "biome"  -- Solo usa Biome para formatear
+            end
+        })
+    end
+})
