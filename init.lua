@@ -31,7 +31,7 @@ vim.keymap.set("n", "<S-H>", ":bprevious<CR>", { noremap = true, silent = true }
 vim.keymap.set("n", "<C-A-w>", ":bd<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gg", ":<cmd>LazyGit<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true, desc = "Code Action" })
 
 vim.keymap.set("n", "<A-j>", function()
